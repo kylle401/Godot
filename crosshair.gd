@@ -23,10 +23,11 @@ func _input(event: InputEvent) -> void:
 				"object": "wall",
 				"reference": clone
 			}
-		else:
-			if coords in Global.walls:
-				Global.walls[coords]["reference"].queue_free()
-				Global.walls.erase(coords)
+			
+	if event.is_action_pressed("m2"):
+		if coords in Global.walls:
+			Global.walls[coords]["reference"].queue_free()
+			Global.walls.erase(coords)
 
 func round_to_interval(num, interval):
 	return int(round((num + interval / 2) / interval)) * interval - interval / 2

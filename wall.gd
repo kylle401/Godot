@@ -11,7 +11,7 @@ var bot_right_occupied = false
 var top_left_occupied = false
 var top_right_occupied = false
 
-func _process(delta: float) -> void:
+func update():
 	#check for neighbor without regard for corner
 	if not(bot_occupied || top_occupied || left_occupied || right_occupied):
 		texture = load("res://images/wall/wall_block.png")
@@ -207,77 +207,79 @@ func _on_top_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		top_occupied = true
 		print("top")
+		update()
 
 func _on_top_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		top_occupied = false
-
+		update()
 
 func _on_bot_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		bot_occupied = true
-
+		update()
 
 func _on_bot_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		bot_occupied = false
-
+		update()
 
 func _on_left_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		left_occupied = true
-
+		update()
 
 func _on_left_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		left_occupied = false
-
+		update()
 
 func _on_right_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		right_occupied = true
-
+		update()
 
 func _on_right_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		right_occupied = false
-
+		update()
 
 func _on_top_left_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		top_left_occupied = true
-
+		update()
 
 func _on_top_left_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		top_left_occupied = false
-
+		update()
 
 func _on_top_right_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		top_right_occupied = true
-
+		update()
 
 func _on_top_right_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		top_right_occupied = false
-
+		update()
 
 func _on_bot_left_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		bot_left_occupied = true
-
+		update()
 
 func _on_bot_left_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		bot_left_occupied = false
-
+		update()
 
 func _on_bot_right_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		bot_right_occupied = true
-
+		update()
 
 func _on_bot_right_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("wall"):
 		bot_right_occupied = false
+		update()
